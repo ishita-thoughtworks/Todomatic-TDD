@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { nanoid } from "nanoid";
+//import { nanoid } from "nanoid";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
@@ -28,7 +28,9 @@ function App(props) {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map((task) => {
+      // if this task has the same ID as the edited task
       if (id === task.id) {
+        //
         return { ...task, name: newName }
       }
       return task;
@@ -43,19 +45,17 @@ function App(props) {
     console.log(tasks);
   }
 
-  const taskList = tasks
-    .filter(FILTER_MAP[filter])
-    .map((task) => (
-      <Todo
-        id={task.id}
-        name={task.name}
-        completed={task.completed}
-        key={task.id}
-        toggleTaskCompleted={toggleTaskCompleted}
-        deleteTask={deleteTask}
-        editTask={editTask}
-      />
-    ));
+  const taskList = tasks ? tasks.filter(FILTER_MAP[filter]).map((task) => (
+    <Todo
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
+    />
+  )) : [];
 
   function deleteTask(id) {
     const remainingTask = tasks.filter((task) => id != task.id)
