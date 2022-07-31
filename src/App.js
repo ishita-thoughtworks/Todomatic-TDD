@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-//import { nanoid } from "nanoid";
-import Form from "./components/Form";
-import FilterButton from "./components/FilterButton";
-import Todo from "./components/Todo";
+import { nanoid } from "nanoid";
+import Form from "./components/Form.js";
+import FilterButton from "./components/FilterButton.js";
+import Todo from "./components/Todo.js";
 
 function App(props) {
   const [filter, setFilter] = useState('All');
@@ -28,9 +28,7 @@ function App(props) {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map((task) => {
-      // if this task has the same ID as the edited task
       if (id === task.id) {
-        //
         return { ...task, name: newName }
       }
       return task;

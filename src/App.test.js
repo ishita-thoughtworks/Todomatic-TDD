@@ -7,7 +7,6 @@ describe("Checking the basic element of Filter Butoon", () => {
     it("should have a heading as Todomatic", () => {
         const { getByText } = render(<App />)
         expect(getByText("TodoMatic")).toBeDefined()
-
     })
 
     it("should have Input", () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js';
+import reportWebVitals from './reportWebVitals.js';
 const DATA = [
   { id: "todo-0", name: "Eat", completed: true },
   { id: "todo-1", name: "Sleep", completed: false },
