@@ -8,7 +8,7 @@ describe("Checking the basic element of Form", () => {
         const { getByTestId } = render(<Form />);
         expect(getByTestId("formInput")).toBeDefined();
     })
-    it("should have input", () => {
+    it("should have Add button", () => {
         const { getByText } = render(<Form />);
         expect(getByText("Add")).toBeDefined();
     })
@@ -25,7 +25,16 @@ describe("Checking the basic element of Form", () => {
         expect(btn).not.toBeDisabled()
 
     })
+    it("Input have some value when we type", () => {
+
+        const { getByTestId, getByRole } = render(<Form />)
+        const input1 = getByTestId("formInput")
+        fireEvent.change(input1, { "target": { "value": "Hello" } })
+        expect(input1).toHaveAttribute("value", "Hello");
+
+    })
 
 })
+
 
 
